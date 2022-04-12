@@ -6,23 +6,26 @@
   export let reviewsdata: ReviewType[] | undefined;
 </script>
 
-<main class="p-4 mx-auto text-center w-full h-screen bg-black grid items-center">
+<div class="p-4 mx-auto text-center w-full h-screen bg-black grid items-center">
   <div class="text-white">
-    <h1 class="text-9xl font-bold">pol.engineer</h1>
+    <h1 class="text-9xl font-extrabold">pol.engineer</h1>
     <br>
-    <h2 class="text-6xl font-semibold">By Pol Vallverdu</h2>
+    <h2 class="text-6xl font-bold">By Pol Vallverdu</h2>
   </div>
-</main>
+</div>
 
-<div class="relative w-full h-screen">
+<div class="relative w-full h-screen text-black font-semibold">
   <svg class="absolute z-20" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
   </svg>
-  <svg class="absolute h-full w-full" id="visual" viewBox="0 0 960 540" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><defs><filter id="blur1" x="-10%" y="-10%" width="120%" height="120%"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="163" result="effect1_foregroundBlur"></feGaussianBlur></filter></defs><rect width="960" height="540" fill="#00b2ff"></rect><g filter="url(#blur1)"><circle cx="567" cy="500" fill="#024978" r="363"></circle><circle cx="122" cy="155" fill="#00b2ff" r="363"></circle><circle cx="354" cy="519" fill="#024978" r="363"></circle><circle cx="812" cy="142" fill="#024978" r="363"></circle><circle cx="123" cy="522" fill="#00b2ff" r="363"></circle><circle cx="652" cy="314" fill="#024978" r="363"></circle></g></svg>
- 
+  <!--
+    Background
+    <svg class="absolute h-full w-full" id="visual" viewBox="0 0 960 540" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><defs><filter id="blur1" x="-10%" y="-10%" width="120%" height="120%"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="163" result="effect1_foregroundBlur"></feGaussianBlur></filter></defs><rect width="960" height="540" fill="#00b2ff"></rect><g filter="url(#blur1)"><circle cx="567" cy="500" fill="#024978" r="363"></circle><circle cx="122" cy="155" fill="#00b2ff" r="363"></circle><circle cx="354" cy="519" fill="#024978" r="363"></circle><circle cx="812" cy="142" fill="#024978" r="363"></circle><circle cx="123" cy="522" fill="#00b2ff" r="363"></circle><circle cx="652" cy="314" fill="#024978" r="363"></circle></g></svg>
+
+  -->
   <!--<div class="absolute z-10 bg-black bg-opacity-0 w-full h-full transition-all duration-1000 hover:bg-opacity-40" />-->
 
-  <div class="relative z-30 text-white text-center ml-auto mr-auto left-0 right-0 bottom-[-50%]">
+  <div class="relative z-30 text-center ml-auto mr-auto left-0 right-0 bottom-[-50%]">
     Test
   </div>
 
@@ -35,7 +38,7 @@
   </div>
 </div>
 
-<div class="p-4 mx-auto text-center w-full h-[75vh] bg-blackbutnotblack">
+<div class="p-4 mx-auto text-center w-full h-[75vh] bg-black">
 	<h1 class="uppercase text-6xl leading-normal font-thin text-svelte">Hello {name}!</h1>
 	<p class=" mt-[3rem]">
 		Visit the
@@ -71,7 +74,7 @@
 }
 
 .custom-shape-divider-bottom-1649722884 .shape-fill {
-  @apply fill-blackbutnotblack;
+  @apply fill-black;
 }
 
 
