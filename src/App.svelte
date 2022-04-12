@@ -1,20 +1,39 @@
 <script lang="ts">
 	import ModeSwitcher from './ModeSwitcher.svelte';
 	import Tailwindcss from './Tailwindcss.svelte';
-	export let name: string;
+	import axios from 'axios';
+	import Home from './pages/Home.svelte';
+
+	type DataType = {
+		accelerator: string;
+		video: string;
+		description: string;
+	};
+
+	let data: DataType | undefined = undefined;
+  let failed = false;
+
+	axios
+			.get(/*'http://cdn.pol.engineer/webdata/data.json'*/ 'http://localhost:3000/data', {
+					headers: {
+							'Access-Control-Allow-Origin': '*'
+					}
+			})
+			.then(res => {
+					data = res.data as DataType;
+			})
+			.catch(e => {
+					failed = true;
+			});
 </script>
-<style>
-	.custom-style {
-		@apply italic;
-	}
-</style>
+
 <Tailwindcss />
-<ModeSwitcher />
-<main class="p-4 mx-auto text-center max-w-xl">
-	<h1 class="uppercase text-6xl leading-normal font-thin text-svelte">Hello {name}!</h1>
-	<p class="custom-style mt-[3rem]">
-		Visit the
-		<a href="https://svelte.dev/tutorial" class="text-blue-500 underline">Svelte tutorial</a>
-		to learn how to build Svelte apps.
-	</p>
-</main>
+<!--<ModeSwitcher />-->
+
+{#if failed}
+    <p>Failed</p>
+{:else if data === undefined}
+    <p>Loading</p>
+{:else}
+    <Home {data} />
+{/if}
