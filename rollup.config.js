@@ -47,6 +47,7 @@ export default {
 			preprocess: sveltePreprocess({
 				sourceMap: !production,
 				postcss: true,
+				scss: true,
 			}),
 		}),
 		// we'll extract any component CSS out into

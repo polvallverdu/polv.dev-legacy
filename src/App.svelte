@@ -7,6 +7,7 @@
 
 	import { onMount } from 'svelte';
 import Error from './pages/Error.svelte';
+import Loading from './pages/Loading.svelte';
 
 	let data: DataType | undefined = undefined;
 	let projects: ProjectType[] | undefined = undefined;
@@ -45,7 +46,7 @@ import Error from './pages/Error.svelte';
 	{#if failed}
 		<Error error="Data could not be fetch" />
 	{:else}
-		<p>Loading...</p>
+		<Loading />
 	{/if}
 {:else if page === "404"}
 	<Error error="Unknown page" />
