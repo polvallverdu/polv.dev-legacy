@@ -1,17 +1,17 @@
 <script lang="ts">
-  //import DeviceDetector from 'svelte-device-detector';
+  import type { DataType, ProjectType, ReviewType } from "../types";
 
-  export let data;
-  
+  export let data: DataType;
+  export let projectsdata: ProjectType[] | undefined;
+  export let reviewsdata: ReviewType[] | undefined;
 </script>
 
-<main class="p-4 mx-auto text-center w-full h-screen bg-black">
-	<h1 class="uppercase text-6xl leading-normal font-thin text-svelte">Hello {name}!</h1>
-	<p class=" mt-[3rem]">
-		Visit the
-		<a href="https://svelte.dev/tutorial" class="text-blue-500">Svelte tutorial</a>
-		to learn how to build Svelte apps.
-	</p>
+<main class="p-4 mx-auto text-center w-full h-screen bg-black grid items-center">
+  <div class="text-white">
+    <h1 class="text-9xl font-bold">pol.engineer</h1>
+    <br>
+    <h2 class="text-6xl font-semibold">By Pol Vallverdu</h2>
+  </div>
 </main>
 
 <div class="relative w-full h-screen">

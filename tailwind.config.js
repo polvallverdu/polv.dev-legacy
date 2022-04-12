@@ -12,6 +12,9 @@ module.exports = {
       colors: {
         svelte: '#ff3e00',
         blackbutnotblack: "#161616",
+        java: "#ECC320",
+        produccion: "#CF4646",
+        edicion: "#29CF42"
       },
     },
   },

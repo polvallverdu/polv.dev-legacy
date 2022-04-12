@@ -1,3 +1,9 @@
+export type DataType = {
+  accelerator: string;
+  video: string;
+  description: string;
+};
+
 export type ProjectType = {
   id: string;
   name: string;
