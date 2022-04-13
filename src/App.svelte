@@ -41,7 +41,7 @@ import Loading from './pages/Loading.svelte';
 
 <Tailwindcss />
 <!--<ModeSwitcher />-->
-<main>
+<main class="overflow-hidden">
 {#if page === "loading"}
 	{#if failed}
 		<Error error="Data could not be fetch" />

@@ -25,15 +25,15 @@
   -->
   <!--<div class="absolute z-10 bg-black bg-opacity-0 w-full h-full transition-all duration-1000 hover:bg-opacity-40" />-->
   
-  <h1 class="absolute top-[10%] w-full text-7xl font-extrabold text-center">About Me</h1>
+  <h1 class="relative top-[10%] w-full text-7xl font-extrabold text-center">About Me</h1>
 
   <div class="z-30 mx-16">
-    <div class="flex flex-row m-16 justify-center h-full">
+    <div class="flex flex-row my-16 mx-2 sm:mx-4 md:mx-8 justify-center items-center h-full">
 
-      <div class="w-1/4"></div> <!-- Invisible Space -->
-      <div class="w-1/4">PICTURE</div>
-      <div class="text-2xl w-[35%]">{data.description}</div>
-      <div class="w-[15%]"></div> <!-- Invisible Space -->
+      <div class="md:w-1/4"></div> <!-- Invisible Space -->
+      <div class="w-1/2 md:w-1/4">PICTURE</div>
+      <div class="text-2xl w-1/2 md:w-[35%]">{data.description}</div>
+      <div class="md:w-[15%]"></div> <!-- Invisible Space -->
 
     </div>
   </div>
