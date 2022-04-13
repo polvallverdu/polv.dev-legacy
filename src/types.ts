@@ -1,7 +1,10 @@
 export type DataType = {
   accelerator: string;
   video: string;
-  description: string;
+  about: {
+    description: string;
+    picture: string;
+  }
 };
 
 export type ProjectType = {
@@ -22,4 +25,4 @@ export type ReviewType = {
   pp: string;
 };
 
-
+export type ProjectListFilter = "code" | "video" | "music";

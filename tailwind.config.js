@@ -12,9 +12,21 @@ module.exports = {
       colors: {
         svelte: '#ff3e00',
         blackbutnotblack: "#161616",
-        java: "#ECC320",
-        produccion: "#CF4646",
-        edicion: "#29CF42"
+        code: {
+          100: "#2987F1",
+          200: "#0173F6",
+          300: "#0657B4",
+        },
+        music: {
+          100: "#9623D8",
+          200: "#8D25CA",
+          300: "#7019A3",
+        },
+        video: {
+          100: "#15BB1A",
+          200: "#16A91B",
+          300: "#0A730D",
+        },
       },
     },
   },
