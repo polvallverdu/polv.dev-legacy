@@ -4,8 +4,8 @@ import ProjectList from '../components/ProjectList.svelte';
   import type { DataType, ProjectListFilter, ProjectType, ReviewType } from "../types";
 
   export let data: DataType;
-  export let projectsdata: ProjectType[] | undefined;
-  export let reviewsdata: ReviewType[] | undefined;
+  export let projectsdata: ProjectType[];
+  export let reviewsdata: ReviewType[];
 
   let filter: ProjectListFilter = "code";
 
@@ -36,11 +36,11 @@ import ProjectList from '../components/ProjectList.svelte';
   <h1 class="relative top-[10%] w-full subtitle">About Me</h1>
 
   <div class="z-30 mx-16">
-    <div class="flex flex-row my-16 mx-2 sm:mx-4 md:mx-8 justify-center items-center h-full">
+    <div class="md:flex md:flex-row my-16 mx-2 sm:mx-4 md:mx-8 justify-center items-center h-full">
 
       <div class="md:w-1/4"></div> <!-- Invisible Space -->
-      <div class="w-1/2 md:w-1/4">PICTURE</div>
-      <div class="text-2xl w-1/2 md:w-[45%]">{data.about.description}</div>
+      <div class="w-full my-4 md:w-1/4">PICTURE</div>
+      <div class="text-2xl w-full md:w-[45%]">{data.about.description}</div>
       <div class="md:w-[5%]"></div> <!-- Invisible Space -->
 
     </div>
@@ -65,7 +65,11 @@ import ProjectList from '../components/ProjectList.svelte';
   </p>
 </div>
 
-<ProjectList filter={filter} projects={projectsdata} />
+{#if projectsdata === undefined}
+   <!-- content here -->
+{:else}
+  <ProjectList filter={filter} projects={projectsdata.filter((p) => p.id === filter)} />
+{/if}
 
 <style>
   .subtitle {

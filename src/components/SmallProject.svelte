@@ -1,40 +1,29 @@
 <script lang="ts">
   import type { ProjectType } from "../types";
   import { Splide, SplideSlide } from '@splidejs/svelte-splide';
-  import '@splidejs/svelte-splide/css/core';
+  import '@splidejs/svelte-splide/css';
   import ImageWrap from "../wraps/ImageWrap.svelte";
   import MediaWrap from "../wraps/MediaWrap.svelte";
 
   import Transition from 'svelte-class-transition';
 
   export let project: ProjectType;
-  let active: boolean = false;
+  let toggle: boolean = false;
+  let laterToggle: boolean = false;
+
+  function setState(state: boolean) {
+    toggle = state;
+    if (state) {
+      setTimeout(() => {
+        laterToggle = state;
+      }, 400);
+    } else {
+      laterToggle = state;
+    }
+  }
 </script>
 
 <!--div class="h-auto">
-  <div class="h-full w-full overflow-hidden bg-white bg-opacity-10 shadow-2xl rounded-xl transition-all duration-500">
-    <div class="sm:p-4 md:flex md:flex-row">
-      
-      <Splide aria-label={project.name + " images"} class="h-auto w-full md:w-[640px] md:outline outline-4 outline-black rounded-xl overflow-hidden shadow-md">
-        {#each project.images as imgurl}
-          <SplideSlide class="h-[240px] md:h-[360px] w-full md:w-[640px]">
-            <MediaWrap src={imgurl} />
-          </SplideSlide>
-        {/each}
-      </Splide>
-      
-      <div class="h-full justify-center align-middle text-left py-4 md:py-0 px-6 text-white">
-        <div class="text-center font-semibold text-2xl">
-          <p>{project.name} <a class="font-normal">- {project.subtitle}</a></p>
-        </div>
-        
-
-      </div>
-    </div>
-  </div>
-</div-->
-
-<div class="h-auto">
   <div class="h-full w-full overflow-hidden bg-white bg-opacity-10 shadow-2xl rounded-xl transition-all duration-500">
     <div class="sm:p-4 lg:flex lg:flex-row">
       
@@ -59,4 +48,93 @@
       </div>
     </div>
   </div>
+</div-->
+
+<div class="h-auto">
+  <Transition
+    toggle={toggle}
+    transitions="transition-all transform"
+    inTransition="duration-500"
+    inState="w-[350px] overflow-hidden bg-white bg-opacity-10 shadow-2xl rounded-xl hover:-translate-y-2 hover:bg-opacity-25"
+    onState="w-full overflow-hidden bg-white bg-opacity-40 shadow-2xl rounded-xl"
+    offVisible={true}
+  >
+
+    <div><div class="text-center font-semibold text-2xl ">
+      <p>{project.name} <a class="font-normal">- {project.subtitle}</a></p>
+    </div>
+
+    <div class="sm:p-4 lg:flex lg:flex-row">
+      <Transition
+        toggle={toggle}
+        transitions="transition-all transform"
+        inTransition="duration-500"
+        inState="h-[240px] w-full outline-4 outline-black rounded-xl overflow-hidden shadow-md"
+        onState="h-[240px] md:h-[360px] w-full md:min-w-[640px] md:max-w-[640px] md:outline outline-4 outline-black rounded-xl overflow-hidden shadow-md"
+        offVisible={true}
+      >
+      
+        <Splide aria-label={project.name + " images"}>
+          {#each project.images as imgurl}
+            <SplideSlide>
+              <Transition 
+                toggle={toggle}
+                transitions="transition-all transform"
+                inTransition="duration-500"
+                inState="h-[240px]"
+                onState="h-[240px] md:h-[360px]"
+                offVisible={true}
+              >
+                  <MediaWrap src={imgurl} />
+              </Transition>
+            </SplideSlide>
+          {/each}
+        </Splide>
+      </Transition>
+      
+      <div>
+        <div class="w-full min-w-full max-w-full basis-full"> </div>
+        <Transition
+        toggle={laterToggle}
+        transitions="transition-all transform"
+        inTransition="ease-in duration-400"
+        inState="h-auto w-full min-w-full max-w-full opacity-0 justify-center align-middle text-left text-lg py-4 md:py-0 px-6 -translate-x-10"
+        onState="h-auto w-full opacity-100 justify-center align-middle text-left text-lg py-4 md:py-0 px-6 translate-x-0"
+        outTransition="duration-100"
+      ><div class="text-left text-white">
+        
+        <div class="p-3"></div>
+        {project.description}
+        <div class="p-3"></div>
+        {project.role}
+        <div class="p-3"></div>
+        {project.technologies}
+        
+      </div></Transition></div>
+    </div>
+  
+    <!-- Toggle Button -->
+    <Transition
+      toggle={!toggle}
+      transitions="transition-all transform"
+      inTransition="duration-500"
+      inState="opacity-0"
+      onState="opacity-100"
+      outTransition="duration-500"
+    >
+      <button on:click={() => setState(true)} class="w-full p-4 rounded-lg bg-black text-white font-semibold hover:text-black hover:bg-white text-lg transition-all duration-300">More info</button>
+    </Transition>
+
+    <Transition
+      toggle={toggle}
+      transitions="transition-all transform"
+      inTransition="duration-500"
+      inState="absolute z-30 left-[98%] top-[1%] opacity-0 translate-y-5"
+      onState="absolute z-30 left-[98%] top-[1%] opacity-100 translate-y-0"
+      outTransition="duration-500"
+    >
+      <button on:click={() => setState(false)} class="text-lg font-semibold transition-all duration-150 hover:text-red-600">X</button>
+    </Transition>
+  </div>
+  </Transition>
 </div>

@@ -6,8 +6,8 @@
 	import type { DataType, ProjectType, ReviewType } from './types';
 
 	import { onMount } from 'svelte';
-import Error from './pages/Error.svelte';
-import Loading from './pages/Loading.svelte';
+	import Error from './pages/Error.svelte';
+	import Loading from './pages/Loading.svelte';
 
 	let data: DataType | undefined = undefined;
 	let projects: ProjectType[] | undefined = undefined;
@@ -41,18 +41,18 @@ import Loading from './pages/Loading.svelte';
 
 <Tailwindcss />
 <!--<ModeSwitcher />-->
-<main class="overflow-hidden">
-{#if page === "loading"}
-	{#if failed}
-		<Error error="Data could not be fetch" />
-	{:else}
-		<Loading />
+<main class="">
+	{#if page === "loading"}
+		{#if failed}
+			<Error error="Data could not be fetch" />
+		{:else}
+			<Loading />
+		{/if}
+	{:else if page === "404"}
+		<Error error="404" />
+	{:else if page === "error"}
+		<Error error="Unknown error" />
+	{:else if page === "home"}
+		<Home {data} projectsdata={projects} reviewsdata={reviews} />
 	{/if}
-{:else if page === "404"}
-	<Error error="Unknown page" />
-{:else if page === "error"}
-	<Error error="Unknown error" />
-{:else if page === "home"}
-  <Home {data} projectsdata={projects} reviewsdata={reviews} />
-{/if}
 </main>

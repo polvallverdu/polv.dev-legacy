@@ -1,12 +1,13 @@
 <script lang="ts">
   import type { ProjectListFilter, ProjectType } from "../types";
+  import SmallProject from "./SmallProject.svelte";
 
   export let projects: ProjectType[];
   export let filter: ProjectListFilter;
 </script>
 
 <div class="relative w-full h-auto">
-  <div class="relative custom-shape-divider-top-1649723136">
+  <div class="custom-shape-divider-top-1649723136">
     <svg class="drop-shadow-lg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
     </svg>
@@ -21,42 +22,13 @@
                     )
               )
   }>
-    test
-    test
-    test
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    test
-    test
-    test
-    test
-    test
-    test
-    test
-    test
-    test
-    test
-    test
-    test
-    test
+    <div class="flex flex-wrap py-24 px-8 sd:px-16 md:px-24">
+      {#each projects as project}
+        <div class="sd:px-4 md:px-8 py-8">
+          <SmallProject project={project} />
+        </div>
+      {/each}
+    </div>
   </div>
 </div>
 

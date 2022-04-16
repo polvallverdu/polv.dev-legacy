@@ -99,6 +99,18 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@splidejs/splide@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.0.1.tgz#386244b028d3be413a30a8b4a90c7676948ba48b"
+  integrity sha512-fgiYX5xLwOFluKKiq9hde9V1tU6wFoTzznX4fOvok95GjEKq9WvkkKBS3/WCuMDn7LXvg/Qpo3Eq0m9QQEr8tA==
+
+"@splidejs/svelte-splide@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@splidejs/svelte-splide/-/svelte-splide-0.2.1.tgz#cc113d9223ee407774c050feca61332dc54fef8a"
+  integrity sha512-B4EhS7GCOV3UBEFDN6jPtD3OkeM8yK6PA+LLJ7s3Dr/umhCIG8IoBABRyXyIMLe7sihR/1GBjfjyjl/tln4hNw==
+  dependencies:
+    "@splidejs/splide" "^4.0.1"
+
 "@tsconfig/svelte@^3.0.0":
   version "3.0.0"
   resolved "https://registry.npmjs.org/@tsconfig/svelte/-/svelte-3.0.0.tgz"
@@ -678,6 +690,21 @@ local-access@^1.0.1:
   resolved "https://registry.npmjs.org/local-access/-/local-access-1.1.0.tgz"
   integrity sha512-XfegD5pyTAfb+GY6chk283Ox5z8WexG56OvM06RWLpAc/UHozO8X6xAxEkIitZOtsSMM1Yr3DkHgW5W+onLhCw==
 
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+  integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
+
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
+
 magic-string@^0.25.7:
   version "0.25.9"
   resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.25.9.tgz"
@@ -1011,6 +1038,14 @@ serialize-javascript@^4.0.0:
   dependencies:
     randombytes "^2.1.0"
 
+simply-reactive@vadimkorr/simply-reactive#1.0.2:
+  version "1.0.0"
+  resolved "https://codeload.github.com/vadimkorr/simply-reactive/tar.gz/f403097d695030306bdfd0f849411fd28ad7d474"
+  dependencies:
+    lodash.clonedeep "^4.5.0"
+    lodash.get "^4.4.2"
+    lodash.isequal "^4.5.0"
+
 sirv-cli@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/sirv-cli/-/sirv-cli-2.0.2.tgz"
@@ -1098,6 +1133,13 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+svelte-carousel@^1.0.17-rc4:
+  version "1.0.17-rc4"
+  resolved "https://registry.yarnpkg.com/svelte-carousel/-/svelte-carousel-1.0.17-rc4.tgz#68559f98e9cf67ee88d38c2e6b41524264b0a4ea"
+  integrity sha512-/eaiyEFRtontUpFkTrxIPiwgtWuzbZOZGSzbbYb64ia4nV5V//55Q25OK0ApScCKs0xiBl14ox00U/d4IxiU8A==
+  dependencies:
+    simply-reactive vadimkorr/simply-reactive#1.0.2
+
 svelte-check@^2.4.3:
   version "2.6.0"
   resolved "https://registry.npmjs.org/svelte-check/-/svelte-check-2.6.0.tgz"
@@ -1111,6 +1153,11 @@ svelte-check@^2.4.3:
     source-map "^0.7.3"
     svelte-preprocess "^4.0.0"
     typescript "*"
+
+svelte-class-transition@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/svelte-class-transition/-/svelte-class-transition-1.0.4.tgz#dae7eb9cc45ff5fd429b187136e75c87ec4beeb5"
+  integrity sha512-00Rs6Ft5V9v4aqHIZKZHY2/OUQjFSNBXtG53ped3SEyl0kYiOyXu/16Ro3xsKMyaU4/xppoL8ef5uPoSP+BNPw==
 
 svelte-preprocess@^4.0.0, svelte-preprocess@^4.9.4:
   version "4.10.5"
