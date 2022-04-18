@@ -93,24 +93,25 @@
       </Transition>
       
       <div>
-        <div class="w-full min-w-full max-w-full basis-full"> </div>
-        <Transition
-        toggle={laterToggle}
-        transitions="transition-all transform"
-        inTransition="ease-in duration-400"
-        inState="h-auto w-full min-w-full max-w-full opacity-0 justify-center align-middle text-left text-lg py-4 md:py-0 px-6 -translate-x-10"
-        onState="h-auto w-full opacity-100 justify-center align-middle text-left text-lg py-4 md:py-0 px-6 translate-x-0"
-        outTransition="duration-100"
-      ><div class="text-left text-white">
+        <p class="h-1 px-[1000px]">                                                                                   </p>
+        <!--Transition
+          toggle={laterToggle}
+          transitions="transition-all transform"
+          inTransition="ease-in duration-400"
+          inState="h-auto w-full min-w-full max-w-full opacity-0 justify-center align-middle text-left text-lg py-4 md:py-0 px-6 -translate-x-10"
+          onState="h-auto w-full opacity-100 justify-center align-middle text-left text-lg py-4 md:py-0 px-6 translate-x-0"
+          outTransition="duration-100"
+        ><div class="text-left text-white">
+          
+
+          <div class="p-3"></div>
+          {project.description}
+          <div class="p-3"></div>
+          {project.role}
+          <div class="p-3"></div>
+          {project.technologies}
         
-        <div class="p-3"></div>
-        {project.description}
-        <div class="p-3"></div>
-        {project.role}
-        <div class="p-3"></div>
-        {project.technologies}
-        
-      </div></Transition></div>
+      </div></Transition--></div>
     </div>
   
     <!-- Toggle Button -->
