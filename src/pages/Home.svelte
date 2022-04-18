@@ -1,6 +1,9 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
-import ProjectList from '../components/ProjectList.svelte';
+import { onMount } from 'svelte';
+
+  import Transition from 'svelte-class-transition';
+import { fade } from 'svelte/transition';
+  import ProjectList from '../components/ProjectList.svelte';
   import type { DataType, ProjectListFilter, ProjectType, ReviewType } from "../types";
 
   export let data: DataType;
@@ -12,13 +15,33 @@ import ProjectList from '../components/ProjectList.svelte';
   function change(newShowing: ProjectListFilter) {
     filter = newShowing;
   }
+
+  let toggle: boolean = false;
+  setTimeout(() => toggle = true, 400);
+
 </script>
 
 <div class="p-4 mx-auto text-center w-full h-screen bg-black flex justify-center items-center">
   <div class="text-white">
-    <h1 class="text-6xl md:text-9xl font-extrabold">pol.engineer</h1>
-    <br>
-    <h2 class="text-3xl md:text-6xl font-bold">By Pol Vallverdu</h2>
+    <Transition
+      toggle={toggle}
+      transitions="transition-all transform"
+      inTransition="duration-500 ease-in"
+      inState="translate-y-40 opacity-0"
+      onState="translate-y-0 opacity-100"
+      offVisible={true}
+    >
+      <div>
+        <h1 class="text-6xl md:text-9xl font-extrabold">
+          pol.engineer
+        </h1>
+        <br>
+        <h2 class="text-3xl md:text-6xl font-bold">
+          By Pol Vallverdu
+        </h2>
+      </div>
+    </Transition>
+      
   </div>
 </div>
 

@@ -22,6 +22,7 @@
                     )
               )
   }>
+  <div class="absolute z-0 bg-black w-full h-full bg-opacity-50" />
     <div class="flex flex-wrap py-24 px-8 sd:px-16 md:px-24">
       {#each projects as project}
         <div class="sd:px-4 md:px-8 py-8">
