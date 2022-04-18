@@ -56,24 +56,27 @@
     transitions="transition-all transform"
     inTransition="duration-500"
     inState="w-[350px] overflow-hidden bg-white bg-opacity-10 shadow-2xl rounded-xl hover:-translate-y-2 hover:bg-opacity-25"
-    onState="w-full overflow-hidden bg-white bg-opacity-40 shadow-2xl rounded-xl"
+    onState="w-full sm:w-[640px] md:w-[783px] overflow-hidden bg-white bg-opacity-40 shadow-2xl rounded-xl"
     offVisible={true}
   >
 
-    <div><div class="text-center font-semibold text-2xl ">
+    <!-- Title -->
+    <div><div class="text-center font-semibold text-2xl py-2">
       <p>{project.name} <a class="font-normal">- {project.subtitle}</a></p>
     </div>
 
-    <div class="sm:p-4 lg:flex lg:flex-row">
+    <!-- Carrousel -->
+    <div class="sm:p-4">
       <Transition
         toggle={toggle}
         transitions="transition-all transform"
         inTransition="duration-500"
         inState="h-[240px] w-full outline-4 outline-black rounded-xl overflow-hidden shadow-md"
-        onState="h-[240px] md:h-[360px] w-full md:min-w-[640px] md:max-w-[640px] md:outline outline-4 outline-black rounded-xl overflow-hidden shadow-md"
+        onState="h-[240px] sm:h-[360px] md:h-[360px] w-full sm:w-[640px] md:w-[750px] md:outline outline-4 outline-black rounded-xl overflow-hidden shadow-md"
         offVisible={true}
       >
       
+        <!-- Slides on Carrousel -->
         <Splide aria-label={project.name + " images"}>
           {#each project.images as imgurl}
             <SplideSlide>
@@ -92,17 +95,16 @@
         </Splide>
       </Transition>
       
-      <div>
-        <p class="h-1 px-[1000px]">                                                                                   </p>
-        <!--Transition
+      <!-- Text of Project -->
+      <!--div>
+        <Transition
           toggle={laterToggle}
           transitions="transition-all transform"
           inTransition="ease-in duration-400"
-          inState="h-auto w-full min-w-full max-w-full opacity-0 justify-center align-middle text-left text-lg py-4 md:py-0 px-6 -translate-x-10"
-          onState="h-auto w-full opacity-100 justify-center align-middle text-left text-lg py-4 md:py-0 px-6 translate-x-0"
+          inState="h-auto w-full sm:w-[640px] md:w-[750px] opacity-0 justify-center align-middle text-left text-lg py-4 md:py-0 px-6 -translate-x-10"
+          onState="h-auto w-full sm:w-[640px] md:w-[750px] opacity-100 justify-center align-middle text-left text-lg py-4 md:py-0 px-6 translate-x-0"
           outTransition="duration-100"
         ><div class="text-left text-white">
-          
 
           <div class="p-3"></div>
           {project.description}
@@ -111,7 +113,17 @@
           <div class="p-3"></div>
           {project.technologies}
         
-      </div></Transition--></div>
+      </div></Transition></div-->
+      {#if toggle}
+        <div>
+          <div class="p-3"></div>
+          {project.description}
+          <div class="p-3"></div>
+          {project.role}
+          <div class="p-3"></div>
+          {project.technologies}
+        </div>
+      {/if}
     </div>
   
     <!-- Toggle Button -->
@@ -130,8 +142,8 @@
       toggle={toggle}
       transitions="transition-all transform"
       inTransition="duration-500"
-      inState="absolute z-30 left-[98%] top-[1%] opacity-0 translate-y-5"
-      onState="absolute z-30 left-[98%] top-[1%] opacity-100 translate-y-0"
+      inState="absolute z-30 left-[96%] top-[1%] opacity-0 translate-y-5"
+      onState="absolute z-30 left-[96%] top-[1%] opacity-100 translate-y-0"
       outTransition="duration-500"
     >
       <button on:click={() => setState(false)} class="text-lg font-semibold transition-all duration-150 hover:text-red-600">X</button>
