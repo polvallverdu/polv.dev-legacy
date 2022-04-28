@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { ProjectListFilter, ProjectType } from "../types";
-  import SmallProject from "./SmallProject.svelte";
+  import SmallProject from "../Project.svelte";
+import type { ProjectListFilter, ProjectType } from "../../types";
 
   export let projects: ProjectType[];
   export let filter: ProjectListFilter;

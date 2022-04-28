@@ -3,7 +3,8 @@ import { onMount } from 'svelte';
 
   import Transition from 'svelte-class-transition';
 import { fade } from 'svelte/transition';
-  import ProjectList from '../components/ProjectList.svelte';
+  import ProjectList from '../components/homeparts/ProjectList.svelte';
+  import ReviewList from '../components/homeparts/ReviewList.svelte';
   import type { DataType, ProjectListFilter, ProjectType, ReviewType } from "../types";
 
   export let data: DataType;
@@ -26,7 +27,7 @@ import { fade } from 'svelte/transition';
     <Transition
       toggle={toggle}
       transitions="transition-all transform"
-      inTransition="duration-500 ease-in"
+      inTransition="duration-500 ease-out"
       inState="translate-y-40 opacity-0"
       onState="translate-y-0 opacity-100"
       offVisible={true}
@@ -41,8 +42,20 @@ import { fade } from 'svelte/transition';
         </h2>
       </div>
     </Transition>
-      
   </div>
+
+  <Transition
+    toggle={toggle}
+    transitions="transition-all transform"
+    inTransition="duration-1000 ease-out"
+    inState="translate-y-40 opacity-0"
+    onState="translate-y-0 opacity-100"
+    offVisible={true}
+  >
+    <div class="absolute left-1/2 bottom-[8%] rotate-90">
+      <p class=" text-white font-extrabold text-xl animate-bounce">>></p>
+    </div>
+  </Transition>
 </div>
 
 <div class="relative w-full h-auto text-black font-semibold grid items-center">
@@ -94,6 +107,12 @@ import { fade } from 'svelte/transition';
   <ProjectList filter={filter} projects={projectsdata.filter((p) => p.id === filter)} />
 {/if}
 
+{#if reviewsdata === undefined}
+   <!-- content here -->
+{:else}
+  <ReviewList reviews={reviewsdata} />
+{/if}
+
 <style>
   .subtitle {
     @apply text-7xl font-extrabold text-center;
@@ -122,6 +141,20 @@ import { fade } from 'svelte/transition';
 
 .custom-shape-divider-bottom-1649722884 .shape-fill {
   @apply fill-black;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+.animate-bounce {
+  animation: bounce 1s infinite;
 }
 
 </style>
