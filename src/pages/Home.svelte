@@ -1,8 +1,5 @@
 <script lang="ts">
-import { onMount } from 'svelte';
-
   import Transition from 'svelte-class-transition';
-import { fade } from 'svelte/transition';
   import ProjectList from '../components/homeparts/ProjectList.svelte';
   import ReviewList from '../components/homeparts/ReviewList.svelte';
   import type { DataType, ProjectListFilter, ProjectType, ReviewType } from "../types";
@@ -34,12 +31,15 @@ import { fade } from 'svelte/transition';
     >
       <div>
         <h1 class="text-6xl md:text-9xl font-extrabold">
-          pol.engineer
+          🌐 pol.engineer
         </h1>
         <br>
         <h2 class="text-3xl md:text-6xl font-bold">
           By Pol Vallverdu
         </h2>
+        <h3 class="text-xl md:text-xl font-bold p-8">
+          <i>(⚠️ Under Construction ⚠️)</i>
+        </h3>
       </div>
     </Transition>
   </div>
@@ -53,7 +53,7 @@ import { fade } from 'svelte/transition';
     offVisible={true}
   >
     <div class="absolute left-1/2 bottom-[8%] rotate-90">
-      <p class=" text-white font-extrabold text-xl animate-bounce">>></p>
+      <p class=" text-white font-extrabold text-3xl animate-bounce">➜</p>
     </div>
   </Transition>
 </div>
@@ -69,14 +69,14 @@ import { fade } from 'svelte/transition';
   -->
   <!--<div class="absolute z-10 bg-black bg-opacity-0 w-full h-full transition-all duration-1000 hover:bg-opacity-40" />-->
   
-  <h1 class="relative top-[10%] w-full subtitle">About Me</h1>
+  <h1 class="relative top-[10%] w-full subtitle">🤴 About Me 👨‍💻</h1>
 
   <div class="z-30 mx-16">
     <div class="md:flex md:flex-row my-16 mx-2 sm:mx-4 md:mx-8 justify-center items-center h-full">
 
       <div class="md:w-1/4"></div> <!-- Invisible Space -->
-      <div class="w-full my-4 md:w-1/4">PICTURE</div>
-      <div class="text-2xl w-full md:w-[45%]">{data.about.description}</div>
+      <img class="w-full my-4 md:w-1/4 p-12 rounded-full" src={data.about.picture} />
+      <div class="text-2xl w-full md:w-[45%] whitespace-pre-line">{data.about.description}</div>
       <div class="md:w-[5%]"></div> <!-- Invisible Space -->
 
     </div>
@@ -95,20 +95,20 @@ import { fade } from 'svelte/transition';
 	<h1 class="subtitle text-white">What can I do?</h1>
 	<p class="text-white text-3xl py-6 px-1">
     I can do 
-    <button class={filter === "code" ? "clicable-text text-white bg-code-200" : "clicable-text text-code-200 bg-transparent hover:text-white hover:bg-code-200"} on:click={() => change("code")}>Development</button>, 
-    <button class={filter === "music" ? "clicable-text text-white bg-music-200" : "clicable-text text-music-200 bg-transparent hover:text-white hover:bg-music-200"} on:click={() => change("music")}>Music Production</button>, 
-    <button class={filter === "video" ? "clicable-text text-white bg-video-200" : "clicable-text text-video-200 bg-transparent hover:text-white hover:bg-video-200"} on:click={() => change("video")}>Video Editing</button>
+    <button class={filter === "code" ? "clicable-text text-white bg-code-200" : "clicable-text text-code-200 bg-transparent hover:text-white hover:bg-code-200"} on:click={() => change("code")}>🖥️ Development</button>, 
+    <button class={filter === "music" ? "clicable-text text-white bg-music-200" : "clicable-text text-music-200 bg-transparent hover:text-white hover:bg-music-200"} on:click={() => change("music")}>🎹 Music Production</button>, 
+    <button class={filter === "video" ? "clicable-text text-white bg-video-200" : "clicable-text text-video-200 bg-transparent hover:text-white hover:bg-video-200"} on:click={() => change("video")}>📹 Video Editing</button>
   </p>
 </div>
 
 {#if projectsdata === undefined}
-   <!-- content here -->
+   <div class="p-10 w-full text-center bg-black text-white text-4xl font-semibold">Loading content...</div>
 {:else}
   <ProjectList filter={filter} projects={projectsdata.filter((p) => p.id === filter)} />
 {/if}
 
 {#if reviewsdata === undefined}
-   <!-- content here -->
+   <div class="p-10 w-full text-center bg-black text-white text-4xl font-semibold">Loading content...</div>
 {:else}
   <ReviewList reviews={reviewsdata} />
 {/if}

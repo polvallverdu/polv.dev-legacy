@@ -6,6 +6,7 @@
   import MediaWrap from "../wraps/MediaWrap.svelte";
 
   import Transition from 'svelte-class-transition';
+  import Icons from "../Icons";
 
   export let project: ProjectType;
   let toggle: boolean = false;
@@ -61,9 +62,18 @@
   >
 
     <!-- Title -->
-    <div><div class="text-center font-semibold text-2xl py-2">
-      <p>{project.name} <a class="font-normal">- {project.subtitle}</a></p>
-    </div>
+    <div>
+      <div class="flex flex-row justify-center">
+        {#if project.highlight_tech}
+          <div>
+            <img src={Icons.getIcon(project.highlight_tech)} alt={project.highlight_tech} class="h-16 w-16 mx-4 mt-2 aspect-auto" />
+          </div>
+        {/if}
+        <div class="text-center pt-2">
+          <p class="font-semibold text-2xl">{project.name}</p>
+          <p class="text-xl">{project.subtitle}</p>
+        </div>
+      </div>
 
     <!-- Carrousel -->
     <div class="sm:p-4">
@@ -115,13 +125,23 @@
         
       </div></Transition></div-->
       {#if toggle}
-        <div>
-          <div class="p-3"></div>
-          {project.description}
-          <div class="p-3"></div>
-          {project.role}
-          <div class="p-3"></div>
-          {project.technologies}
+        <div class="whitespace-pre-line">
+          <p class="part">Description |</p>
+          <p class="text">{project.description}</p>
+          <p class="part">Roles |</p>
+          <p class="text">{project.role}</p>
+          {#if project.id === "code"}
+            <p class="part pb-2">Technologies |</p>
+          {:else}
+            <p class="part pb-2">Socials |</p>
+          {/if}
+          <div class="flex justify-center bg-black bg-opacity-30 shadow-md rounded-lg">
+            {#each project.technologies as tech}
+              <div>
+                <img src={Icons.getIcon(tech)} alt={tech} class="w-16 h-16 m-2 aspect-square hover:-translate-y-2 transition-all duration-100" />
+              </div>
+            {/each}
+          </div>
         </div>
       {/if}
     </div>
@@ -151,3 +171,13 @@
   </div>
   </Transition>
 </div>
+
+<style>
+  .part {
+    @apply font-bold text-2xl pt-4;
+  }
+
+  .text {
+    @apply text-lg pt-2;
+  }
+</style>

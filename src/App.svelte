@@ -8,6 +8,7 @@
 	import { onMount } from 'svelte';
 	import Error from './pages/Error.svelte';
 	import Loading from './pages/Loading.svelte';
+import Icons from './Icons';
 
 	let data: DataType | undefined = undefined;
 	let projects: ProjectType[] | undefined = undefined;
@@ -26,6 +27,7 @@
 		} else if (url.endsWith("/")) {
 			page = "loading";
 			try {
+				await Icons.load();
 				data = (await axios.get('http://localhost:3000/data').then((res) => res)).data as DataType;
 				page = "home";
 				projects = (await axios.get('http://localhost:3000/projects').then((res) => res)).data as ProjectType[];

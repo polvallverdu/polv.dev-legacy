@@ -13,7 +13,8 @@ export type ProjectType = {
   subtitle: string;
   description: string;
   role: string;
-  technologies: string;
+  highlight_tech?: string;
+  technologies: string[];
   images: string[];
 };
 
