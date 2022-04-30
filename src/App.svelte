@@ -28,10 +28,10 @@ import Icons from './Icons';
 			page = "loading";
 			try {
 				await Icons.load();
-				data = (await axios.get('http://localhost:3000/data').then((res) => res)).data as DataType;
+				data = (await axios.get('https://cdn.pol.engineer/webdata/data_en.json').then((res) => res)).data as DataType;
 				page = "home";
-				projects = (await axios.get('http://localhost:3000/projects').then((res) => res)).data as ProjectType[];
-				reviews = (await axios.get('http://localhost:3000/reviews').then((res) => res)).data as ReviewType[];
+				projects = (await axios.get('https://cdn.pol.engineer/webdata/projects.json').then((res) => res)).data as ProjectType[];
+				reviews = (await axios.get('https://cdn.pol.engineer/webdata/reviews.json').then((res) => res)).data as ReviewType[];
 			} catch (e) {
 				failed = true;
 			}
