@@ -1,5 +1,6 @@
 <script lang="ts">
   import Transition from 'svelte-class-transition';
+import Contact from '../components/Contact.svelte';
   import ProjectList from '../components/homeparts/ProjectList.svelte';
   import ReviewList from '../components/homeparts/ReviewList.svelte';
   import type { DataType, ProjectListFilter, ProjectType, ReviewType } from "../types";
@@ -74,10 +75,8 @@
   <div class="z-30 mx-16">
     <div class="md:flex md:flex-row my-16 mx-2 sm:mx-4 md:mx-8 justify-center items-center h-full">
 
-      <div class="md:w-1/4"></div> <!-- Invisible Space -->
-      <img class="w-full my-4 md:w-1/4 p-12 rounded-full" src={data.about.picture} />
+      <img class="w-full my-4 md:w-[30%] p-12 rounded-full justify-end" alt="profile" src={data.about.picture} />
       <div class="text-2xl w-full md:w-[45%] whitespace-pre-line">{data.about.description}</div>
-      <div class="md:w-[5%]"></div> <!-- Invisible Space -->
 
     </div>
   </div>
@@ -92,13 +91,20 @@
 </div>
 
 <div class="p-4 mx-auto text-center w-full h-auto bg-black">
-	<h1 class="subtitle text-white">What can I do?</h1>
-	<p class="text-white text-3xl py-6 px-1">
+	<h1 class="subtitle text-white">What do I do?</h1>
+  <p class="text-white text-xl py-6 sm:mx-28 lg:mx-56">
+    I'm a <b>developer</b>, freelancing and doing my own projects. I have worked with very <b>important Minecraft servers💼</b> and some <b>big influencers🤑.</b><br>
+    <br>
+    I started coding <b>5 years</b>🌌 ago. I can code in <b>Java</b>, <b>Python</b>, <b>Typescript</b>, <b>Flutter/Dart</b> and <b>Rust</b>. I have worked with <b>MySQL</b>, <b>MongoDB</b> and <b>Redis</b> as <b>Databases⚡️</b>, and used <b>Docker</b>, <b>Kubernetes</b> and <b>Azure</b> to <b>Host🌏</b> my services.
+    <br><br>
+    <b><em>Here are some of my more notable projects: </em></b>
+  </p>
+	<!--p class="text-white text-3xl py-6 px-1">
     I can do 
     <button class={filter === "code" ? "clicable-text text-white bg-code-200" : "clicable-text text-code-200 bg-transparent hover:text-white hover:bg-code-200"} on:click={() => change("code")}>🖥️ Development</button>, 
     <button class={filter === "music" ? "clicable-text text-white bg-music-200" : "clicable-text text-music-200 bg-transparent hover:text-white hover:bg-music-200"} on:click={() => change("music")}>🎹 Music Production</button>, 
     <button class={filter === "video" ? "clicable-text text-white bg-video-200" : "clicable-text text-video-200 bg-transparent hover:text-white hover:bg-video-200"} on:click={() => change("video")}>📹 Video Editing</button>
-  </p>
+  </p-->
 </div>
 
 {#if projectsdata === undefined}
@@ -112,6 +118,8 @@
 {:else}
   <ReviewList reviews={reviewsdata} />
 {/if}
+
+<Contact contactInfo={data.contact} />
 
 <style>
   .subtitle {

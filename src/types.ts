@@ -4,7 +4,8 @@ export type DataType = {
   about: {
     description: string;
     picture: string;
-  }
+  },
+  contact: ContactInfo;
 };
 
 export type ProjectType = {
@@ -27,3 +28,12 @@ export type ReviewType = {
 };
 
 export type ProjectListFilter = "code" | "video" | "music";
+
+export type ContactInfo = {
+  email: string;
+  discord: string;
+  twitter: string;
+  linkedin: string;
+  socialmedia: string;
+  form: string;
+}

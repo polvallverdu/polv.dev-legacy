@@ -1,6 +1,6 @@
 <script lang="ts">
   import SmallProject from "../Project.svelte";
-import type { ProjectListFilter, ProjectType } from "../../types";
+  import type { ProjectListFilter, ProjectType } from "../../types";
 
   export let projects: ProjectType[];
   export let filter: ProjectListFilter;
@@ -14,16 +14,9 @@ import type { ProjectListFilter, ProjectType } from "../../types";
   </div>
 
 
-  <div class={(filter === "code" ? 
-                    "w-full h-auto bg-gradient-to-tr from-code-100 via-code-200 to-code-300" : 
-                    (filter === "music" ? 
-                            "w-full h-auto bg-gradient-to-tr from-music-100 via-music-200 to-music-300" : 
-                            "w-full h-auto bg-gradient-to-tr from-video-100 via-video-200 to-video-300"
-                    )
-              )
-  }>
+  <div class="w-full h-auto bg-gradient-to-tr from-code-100 via-code-200 to-code-300">
   <!--div class="absolute z-0 bg-black w-full h-full bg-opacity-50" /-->
-    <div class="flex flex-wrap py-24 px-8 sd:px-16 md:px-24">
+    <div class="flex flex-wrap justify-center py-24 px-8 sd:px-16 md:px-24">
       {#each projects as project}
         <div class="sd:px-4 md:px-8 py-8">
           <SmallProject project={project} />

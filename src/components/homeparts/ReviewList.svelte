@@ -23,8 +23,6 @@ import Review from "../Review.svelte";
 
     // set reviewsToShow to the shuffled array with a limit of 3 reviews
     reviewsToShow = array.slice(0, 3);
-    console.log(reviews)
-    console.log(reviewsToShow)
   }
 
   shuffle();

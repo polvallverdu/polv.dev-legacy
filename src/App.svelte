@@ -28,10 +28,11 @@ import Icons from './Icons';
 			page = "loading";
 			try {
 				await Icons.load();
-				data = (await axios.get('https://cdn.pol.engineer/webdata/data_en.json').then((res) => res)).data as DataType;
+				const res = await axios.get('http://cdn.pol.engineer/webdata/data_en.json');
+				data = res.data as DataType;
 				page = "home";
 				projects = (await axios.get('https://cdn.pol.engineer/webdata/projects.json').then((res) => res)).data as ProjectType[];
-				reviews = (await axios.get('https://cdn.pol.engineer/webdata/reviews.json').then((res) => res)).data as ReviewType[];
+				reviews = (await axios.get('http://cdn.pol.engineer/webdata/reviews.json').then((res) => res)).data as ReviewType[];
 			} catch (e) {
 				failed = true;
 			}
@@ -43,7 +44,7 @@ import Icons from './Icons';
 
 <Tailwindcss />
 <!--<ModeSwitcher />-->
-<main class="">
+<main>
 	{#if page === "loading"}
 		{#if failed}
 			<Error error="Data could not be fetch" />

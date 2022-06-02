@@ -7,6 +7,7 @@
 
   import Transition from 'svelte-class-transition';
   import Icons from "../Icons";
+import { onMount } from "svelte";
 
   export let project: ProjectType;
   let toggle: boolean = false;
@@ -22,6 +23,8 @@
       laterToggle = state;
     }
   }
+
+  let splide: Splide = null;
 </script>
 
 <!--div class="h-auto">
@@ -63,20 +66,20 @@
 
     <!-- Title -->
     <div>
-      <div class="flex flex-row justify-center">
+      <div class="flex flex-row justify-center m-2">
         {#if project.highlight_tech}
           <div>
-            <img src={Icons.getIcon(project.highlight_tech)} alt={project.highlight_tech} class="h-16 w-16 mx-4 mt-2 aspect-auto" />
+            <img src={Icons.getIcon(project.highlight_tech)} alt={project.highlight_tech} class="h-16 w-16 mx-4 aspect-auto" />
           </div>
         {/if}
-        <div class="text-center pt-2">
+        <div class="text-center">
           <p class="font-semibold text-2xl">{project.name}</p>
           <p class="text-xl">{project.subtitle}</p>
         </div>
       </div>
 
     <!-- Carrousel -->
-    <div class="sm:p-4">
+    <div class="px-1 pb-1 sm:px-4 sm:pb-4">
       <Transition
         toggle={toggle}
         transitions="transition-all transform"
@@ -87,7 +90,7 @@
       >
       
         <!-- Slides on Carrousel -->
-        <Splide aria-label={project.name + " images"}>
+        <Splide aria-label={project.name + " images"} class="bg-black" bind:this={splide}>
           {#each project.images as imgurl}
             <SplideSlide>
               <Transition 
@@ -149,11 +152,10 @@
     <!-- Toggle Button -->
     <Transition
       toggle={!toggle}
-      transitions="transition-all transform"
-      inTransition="duration-500"
+      transitions="sm:transition-all transform"
+      inTransition="duration-[0] sm:duration-500"
       inState="opacity-0"
       onState="opacity-100"
-      outTransition="duration-500"
     >
       <button on:click={() => setState(true)} class="w-full p-4 rounded-lg bg-black text-white font-semibold hover:text-black hover:bg-white text-lg transition-all duration-300">More info</button>
     </Transition>
