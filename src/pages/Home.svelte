@@ -36,7 +36,7 @@ import Contact from '../components/Contact.svelte';
         </h1>
         <br>
         <h2 class="text-3xl md:text-6xl font-bold">
-          By Pol Vallverdu
+          By Pol Vallverdú
         </h2>
         <!--h3 class="text-xl md:text-xl font-bold p-8">
           <i>(⚠️ Under Construction ⚠️)</i>
