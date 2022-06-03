@@ -38,9 +38,9 @@ import Contact from '../components/Contact.svelte';
         <h2 class="text-3xl md:text-6xl font-bold">
           By Pol Vallverdu
         </h2>
-        <h3 class="text-xl md:text-xl font-bold p-8">
+        <!--h3 class="text-xl md:text-xl font-bold p-8">
           <i>(⚠️ Under Construction ⚠️)</i>
-        </h3>
+        </h3-->
       </div>
     </Transition>
   </div>
@@ -53,7 +53,7 @@ import Contact from '../components/Contact.svelte';
     onState="translate-y-0 opacity-100"
     offVisible={true}
   >
-    <div class="absolute left-1/2 bottom-[8%] rotate-90">
+    <div class="absolute left-1/2 -translate-x-1/2 bottom-[8%] rotate-90">
       <p class=" text-white font-extrabold text-3xl animate-bounce">➜</p>
     </div>
   </Transition>
@@ -70,7 +70,7 @@ import Contact from '../components/Contact.svelte';
   -->
   <!--<div class="absolute z-10 bg-black bg-opacity-0 w-full h-full transition-all duration-1000 hover:bg-opacity-40" />-->
   
-  <h1 class="relative top-[10%] w-full subtitle">🤴 About Me 👨‍💻</h1>
+  <h1 class="relative top-[10%] w-full font-extrabold text-center text-5xl md:text-7xl">🤴 About Me 👨‍💻</h1>
 
   <div class="z-30 mx-16">
     <div class="md:flex md:flex-row my-16 mx-2 sm:mx-4 md:mx-8 justify-center items-center h-full">
@@ -91,7 +91,7 @@ import Contact from '../components/Contact.svelte';
 </div>
 
 <div class="p-4 mx-auto text-center w-full h-auto bg-black">
-	<h1 class="subtitle text-white">What do I do?</h1>
+	<h1 class="font-extrabold text-center text-5xl md:text-7xl text-white">What do I do?</h1>
   <p class="text-white text-xl py-6 sm:mx-28 lg:mx-56">
     I'm a <b>developer</b>, freelancing and doing my own projects. I have worked with very <b>important Minecraft servers💼</b> and some <b>big influencers🤑.</b><br>
     <br>
@@ -123,7 +123,7 @@ import Contact from '../components/Contact.svelte';
 
 <style>
   .subtitle {
-    @apply text-7xl font-extrabold text-center;
+    @apply text-7xl ;
   }
 
   .clicable-text {

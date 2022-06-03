@@ -52,9 +52,9 @@ import { onMount } from "svelte";
   const labelsClasses = "text-xl font-semibold";
 </script>
 
-<div class="relative w-full h-[40rem] bg">
+<div class="relative w-full h-screen bg">
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center">
-    <div class="text-7xl font-extrabold mb-20 text-white w-full">
+    <div class="text-4xl md:text-7xl font-extrabold mb-20 text-white w-full">
       ✉️ Contact me 📮
     </div>
     <div class=" text-white w-[85%] sm:w-[75%] lg:w-1/2 inline-block text-left">
@@ -100,12 +100,15 @@ import { onMount } from "svelte";
 
       <button on:click={() => openTab(contactInfo.socialmedia)} class="w-full my-4 py-2 px-4 outline outline-2 outline-white bg-black backdrop-blur-md bg-opacity-50 hover:bg-opacity-100 hover:bg-white transition-all hover:text-black font-semibold text-xl rounded">...or you can contact me through my socials 🔗</button>
     </div>
+    <div class="text-white text-md mt-5 shadow-lg">
+      Designed and Coded with ♥ by Pol Vallverdu. Powered by <a href="https://svelte.dev/">Svelte</a> and Kubernetes.
+    </div>
   </div>
 </div>
 
 <style lang="scss">
   .bg {
-    background-image: url("http://cdn.pol.engineer/webdata/intro_accelerator.png");
+    background-image: url("https://cdn.pol.engineer/webdata/intro_accelerator.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

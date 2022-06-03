@@ -30,7 +30,7 @@ import Review from "../Review.svelte";
 
 <!--div class="relative w-full h-96 left-0 bottom-0 bg-gradient-to-b from-transparent via-transparent to-black" /-->
 <div class="bg-black w-full h-full">
-  <div class="text-7xl font-extrabold text-white pt-16 w-full text-center">🌟 What clients say 🌟</div>
+  <div class="font-extrabold text-center text-4xl md:text-7xl text-white pt-16 w-full">🌟 What clients say 🌟</div>
   <div class="text-xl text-white pt-12 w-full text-center">Here are some reviews and vouches from previous clients.</div>
 
   <div class="w-full flex justify-center p-8">
