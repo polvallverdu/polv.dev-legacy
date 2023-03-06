@@ -28,11 +28,11 @@ import Icons from './Icons';
 			page = "loading";
 			try {
 				await Icons.load();
-				const res = await axios.get('https://cdn.pol.engineer/webdata/data_en.json');
+				const res = await axios.get('https://cdn.polv.dev/webdata/data_en.json');
 				data = res.data as DataType;
 				page = "home";
-				projects = (await axios.get('https://cdn.pol.engineer/webdata/projects.json').then((res) => res)).data as ProjectType[];
-				reviews = (await axios.get('https://cdn.pol.engineer/webdata/reviews.json').then((res) => res)).data as ReviewType[];
+				projects = (await axios.get('https://cdn.polv.dev/webdata/projects.json').then((res) => res)).data as ProjectType[];
+				reviews = (await axios.get('https://cdn.polv.dev/webdata/reviews.json').then((res) => res)).data as ReviewType[];
 			} catch (e) {
 				failed = true;
 			}

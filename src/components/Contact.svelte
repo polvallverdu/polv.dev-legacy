@@ -108,7 +108,7 @@ import { onMount } from "svelte";
 
 <style lang="scss">
   .bg {
-    background-image: url("https://cdn.pol.engineer/webdata/intro_accelerator.png");
+    background-image: url("https://cdn.polv.dev/webdata/intro_accelerator.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

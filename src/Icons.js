@@ -9,7 +9,7 @@ class Icons {
   }
 
   async load() {
-    this.icons = await axios.get("https://cdn.pol.engineer/webdata/tech.json").then(res => res.data);
+    this.icons = await axios.get("https://cdn.polv.dev/webdata/tech.json").then(res => res.data);
   }
 
   getIcons() {
