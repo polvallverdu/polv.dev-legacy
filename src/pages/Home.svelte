@@ -32,7 +32,7 @@ import Contact from '../components/Contact.svelte';
     >
       <div>
         <h1 class="text-6xl md:text-9xl font-extrabold">
-          🌐 pol.engineer
+          🌐 polv.dev
         </h1>
         <br>
         <h2 class="text-3xl md:text-6xl font-bold">
